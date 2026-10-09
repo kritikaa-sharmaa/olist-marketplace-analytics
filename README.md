@@ -12,6 +12,20 @@ All payment values are in Brazilian reais (R$).
 4. **Late delivery is uneven by state.** Rio de Janeiro (RJ) runs 13.47% late, São Paulo (SP) 5.89%. SP has the most late orders (2,387), largely reflecting its much larger order volume, while its late-delivery rate remains below RJ's.
 5. **Retention is very low, and delivery doesn't explain it.** Six-month retention is 2.69%. Customers whose first order was late came back at 2.39%, against 2.72% for on-time first orders. That is a small difference.
 
+## Visualizations
+
+### 1. Late-Delivery Rate by Customer State
+
+![Late-delivery rate by customer state](images/late_by_state.png)
+
+### 2. Customer Review Distribution
+
+![Customer review distribution for late vs. on-time/early orders](images/customer_review_distribution.png)
+
+### 3. Average Delivery Time by Stage
+
+![Average delivery time by stage for all orders vs. late orders](images/delivery_stage_comparison.png)
+
 ## Business question
 
 Where is the marketplace exposed to poor delivery performance, and how does it relate to customer experience and repeat purchasing?
