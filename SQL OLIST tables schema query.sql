@@ -1,0 +1,115 @@
+----create database Olist
+----use olist
+
+----create table customers (customer_id varchar(50) primary key,customer_unique_id varchar(50),customer_zip_code_prefix varchar(50),
+----customer_city varchar(50),	customer_state varchar(50))
+
+----create table geolocation (geolocation_zip_code_prefix varchar(50),	geolocation_lat decimal(15,8),geolocation_lng decimal(15,8),
+----geolocation_city varchar(50),geolocation_state varchar(50))
+
+----create table products (product_id varchar(50) primary key,	product_category_name varchar(50),	product_name_lenght int,
+----product_description_lenght int,	product_photos_qty int,	product_weight_g int,product_length_cm int,	product_height_cm int,product_width_cm int)
+
+----create table sellers (seller_id varchar(50) primary key,seller_zip_code_prefix varchar(50),seller_city varchar(50),seller_state varchar(50))
+
+----create table category_name_translation (product_category_name varchar(50),	product_category_name_english varchar(50))
+
+----create table orders (order_id varchar(50) primary key,	customer_id varchar(50),order_status varchar(50),
+----order_purchase_timestamp datetime,order_approved_at datetime,order_delivered_carrier_date datetime,
+----order_delivered_customer_date datetime,	order_estimated_delivery_date datetime,
+----foreign key (customer_id) references customers(customer_id))
+
+----create table payments(order_id varchar(50),payment_sequential int,	payment_type varchar(50),
+----payment_installments int,payment_value decimal(10,2),
+----foreign key (order_id) references orders(order_id),
+----PRIMARY KEY (order_id, payment_sequential))
+
+----create table reviews(review_id varchar(50),order_id varchar(50),review_score int, review_comment_title varchar(50),
+----review_comment_message varchar(max), review_creation_date datetime,	review_answer_timestamp datetime,
+----PRIMARY KEY (review_id, order_id), foreign key (order_id) references orders(order_id))
+
+----create table order_items (order_id varchar(50),order_item_id varchar(5),product_id	varchar(50),seller_id varchar(50),
+----shipping_limit_date	datetime, price decimal(10,2),freight_value decimal(10,2),
+----primary key (order_id, order_item_id),
+----foreign key (order_id) references orders(order_id) , foreign key (product_id) references products(product_id), 
+----foreign key (seller_id) references sellers(seller_id))
+
+----BULK INSERT customers
+----FROM 'C:\Users\acer\Downloads\archive\olist_customers_dataset.csv'
+----WITH (
+----    FORMAT = 'CSV',
+----    FIRSTROW = 2,
+----    FIELDQUOTE = '"',
+----    FIELDTERMINATOR = ',',
+----    ROWTERMINATOR = '0x0a',
+----    CODEPAGE = '65001')
+
+--BULK INSERT products
+--FROM 'C:\Users\acer\Downloads\archive\olist_products_dataset.csv'
+--WITH (
+--    FORMAT = 'CSV',
+--    FIRSTROW = 2,
+--    FIELDTERMINATOR = ',',
+--    ROWTERMINATOR = '0x0a',
+--    CODEPAGE = '65001',
+--    DATAFILETYPE = 'char'
+--);
+--BULK INSERT sellers
+--FROM 'C:\Users\acer\Downloads\archive\olist_sellers_dataset.csv'
+--WITH (
+--    FORMAT = 'CSV',
+--    FIRSTROW = 2,
+--    FIELDTERMINATOR = ',',
+--    ROWTERMINATOR = '0x0a',
+--    CODEPAGE = '65001',
+--    DATAFILETYPE = 'char'
+--);
+--BULK INSERT orders
+--FROM 'C:\Users\acer\Downloads\archive\olist_orders_dataset.csv'
+--WITH (
+--    FORMAT = 'CSV',
+--    FIRSTROW = 2,
+--    FIELDTERMINATOR = ',',
+--    ROWTERMINATOR = '0x0a',
+--    CODEPAGE = '65001',
+--    DATAFILETYPE = 'char'
+--);
+--BULK INSERT order_items
+--FROM 'C:\Users\acer\Downloads\archive\olist_order_items_dataset.csv'
+--WITH (
+--    FORMAT = 'CSV',
+--    FIRSTROW = 2,
+--    FIELDTERMINATOR = ',',
+--    ROWTERMINATOR = '0x0a',
+--    CODEPAGE = '65001',
+--    DATAFILETYPE = 'char'
+--);
+--BULK INSERT reviews
+--FROM 'C:\Users\acer\Downloads\archive\olist_order_reviews_dataset.csv'
+--WITH (
+--    FORMAT = 'CSV',
+--    FIRSTROW = 2,
+--    FIELDQUOTE = '"',
+--    FIELDTERMINATOR = ',',
+--    CODEPAGE = '65001'
+--);
+--BULK INSERT geolocation
+--FROM 'C:\Users\acer\Downloads\archive\olist_geolocation_dataset.csv'
+--WITH (
+--    FORMAT = 'CSV',
+--    FIRSTROW = 2,
+--    FIELDTERMINATOR = ',',
+--    ROWTERMINATOR = '0x0a',
+--    CODEPAGE = '65001',
+--    DATAFILETYPE = 'char'
+--);
+--BULK INSERT category_name_translation
+--FROM 'C:\Users\acer\Downloads\archive\product_category_name_translation.csv'
+--WITH (
+--    FORMAT = 'CSV',
+--    FIRSTROW = 2,
+--    FIELDTERMINATOR = ',',
+--    ROWTERMINATOR = '0x0a',
+--    CODEPAGE = '65001',
+--    DATAFILETYPE = 'char'
+--);
