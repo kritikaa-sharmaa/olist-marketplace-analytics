@@ -15,21 +15,13 @@ The project investigates delivery performance, its association with customer rev
 ## Visualizations
 
 ### Late-Delivery Rate by Customer State
-
-![Late-delivery rate by customer state]\(images/late_by_state.png)
-
-
+![Late-delivery rate by customer state](images/late_by_state.png)
 
 ### Customer Review Distribution
-
-![Customer review distribution for late vs. on-time/early orders]\(images/customer_review_distribution.png)
-
-
+![Customer review distribution](images/customer_review_distribution.png)
 
 ### Average Delivery Time by Stage
-
-![Average delivery time by stage for all orders vs. late orders]\(images/delivery_stage_comparison.png)
-
+![Average delivery time by stage](images/delivery_stage_comparison.png)
 
 
 ## Tools & SQL Techniques
